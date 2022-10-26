@@ -22,7 +22,7 @@ namespace OrbitalCamera
         private void Update()
         {
             _rotation += Input.GetAxis("Mouse X");
-            _inclination = (_inclination + -Input.GetAxis("Mouse Y")).Clamp(-89, +89);
+            _inclination = Mathf.Clamp(_inclination + -Input.GetAxis("Mouse Y"), -89, +89);
 
             _outerOrbitCenter = transform.position;
             var rotation = Quaternion.AngleAxis(_rotation, Vector3.up);
